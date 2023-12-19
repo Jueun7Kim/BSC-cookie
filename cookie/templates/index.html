@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSC</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #FF5E3A, #FF2A68);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden; /* 가로 스크롤 방지 */
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-top: 20px;
+            letter-spacing: 3px;
+        }
+
+        h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .denied {
+            font-size: 28px;
+            color: #FFFFFF;
+            margin-top: 50px;
+            padding: 20px;
+            border: 2px solid #FFFFFF;
+            border-radius: 10px;
+            background-color: rgba(255, 87, 51, 0.1);
+            box-shadow: 0 4px 8px rgba(255, 87, 51, 0.2);
+        }
+
+        .denied p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="logo">BSC</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+        <h1>admin page</h1>
+    </header>
+
+    {% if user == "admin" %}
+        <h1>Welcome, Admin!</h1>
+        <h3>Here's the flag: {{ flag }}</h3>
+    {% else %}
+        <div class="denied">
+            <h1>Access Denied</h1>
+            <p>Sorry, you do not have the necessary privileges to access this page.</p>
+        </div>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2023 BSC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
